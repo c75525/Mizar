@@ -6,25 +6,56 @@
 </head>
 <body>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-
-.root {
-  width: 100%;
-  background: #fff;
-  position: relative;
-  overflow: hidden;
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.root svg.frame {
-  width: 100%;
-  height: auto;
-  display: block;
+.root{
+  width:100%;
+  position:relative;
+  background:#fff;
+  overflow:hidden;
+  min-height:768px;
 }
 
-.section { display: none; }
-.section.active { display: block; }
+/* all pages occupy same space */
+.section{
+  position:absolute;
+  inset:0;
+
+  opacity:0;
+  visibility:hidden;
+
+  transform:translateY(20px);
+  filter:blur(8px);
+
+  transition:
+    opacity .65s cubic-bezier(.22,1,.36,1),
+    transform .65s cubic-bezier(.22,1,.36,1),
+    filter .65s cubic-bezier(.22,1,.36,1),
+    visibility 0s linear .65s;
+
+  pointer-events:none;
+}
+
+.section.active{
+  opacity:1;
+  visibility:visible;
+
+  transform:translateY(0);
+  filter:blur(0);
+
+  transition:
+    opacity .65s cubic-bezier(.22,1,.36,1),
+    transform .65s cubic-bezier(.22,1,.36,1),
+    filter .65s cubic-bezier(.22,1,.36,1);
+
+  pointer-events:auto;
+  z-index:2;
+}
 </style>
-
 <div class="root">
 
   <!-- ASSETS (default active) -->
@@ -215,10 +246,23 @@
 </div>
 
 <script>
-  function go(name) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById('sec-' + name).classList.add('active');
-  }
+let currentPage = 'assets';
+
+function go(name){
+
+  if(name === currentPage) return;
+
+  const current = document.getElementById('sec-' + currentPage);
+  const next = document.getElementById('sec-' + name);
+
+  current.classList.remove('active');
+
+  requestAnimationFrame(() => {
+    next.classList.add('active');
+  });
+
+  currentPage = name;
+}
 </script>
 </body>
 </html>
