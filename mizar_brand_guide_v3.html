@@ -1,45 +1,126 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mizar Brand Guide</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mizar Brand Guide</title>
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://use.typekit.net/pmd2/fonts.googleapis.com/css2?family=Squada+One&family=Jost:wght@300;400;500;700&display=swapbal styles -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<link rel="stylesheet" href="https://use.typekit.net/pmd2vwf.css">
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    body {
-      background: #fff;
-      font-family: 'Jost', sans-serif;
-    }
-
-    .root {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .root svg.frame {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .section {
-      display: none;
-    }
-
-    .section.active {
-      display: block;
-    }
-  </style>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+.root {
+  width: 100%;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.root svg.frame {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.section { display: none; }
+.section.active { display: block; }
+</style>
 </head>
 
 <body>
 
+<div class="root">
+
+<!-- ASSETS (default active) -->
+<div class="section active" id="sec-assets">
+<svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<defs>
+<style>
+.arp { font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif; font-weight: 200; }
+</style>
+</defs>
+
+<rect width="1366" height="768" fill="#fff"/>
+
+<text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
+
+<path d="M564.45,146.49c7.31-17.31-.7-37.63-17.86-45.3l.4-.92,31.39,13.25,13.91-31.11.92.4c-7.31,17.31.7,37.63,17.86,45.3l-.4.92-31.39-13.25-13.91,31.11-.92-.4Z"/>
+<path fill="#fff" d="M592.74,82.62h0c-7.47,17.69.58,38.11,18.11,45.95l-31.85-13.44-14.1,31.56h0c7.47-17.69-.58-38.11-18.11-45.95l31.85,13.44,14.1-31.56Z"/>
+
+<text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#1a1a1a">COLORS</text>
+<text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#1a1a1a">TYPE</text>
+<text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#a8725f">ASSETS</text>
+<text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#1a1a1a">STYLE</text>
+
+<rect x="160" y="640" width="120" height="30" fill="transparent" style="cursor:pointer" onclick="go('colors')"/>
+<rect x="480" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('type')"/>
+<rect x="780" y="640" width="90" height="30" fill="transparent" style="cursor:pointer" onclick="go('assets')"/>
+<rect x="1090" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('style')"/>
+</svg>
+</div>
+
+<!-- COLORS -->
+<div class="section" id="sec-colors">
+<svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect width="1366" height="768" fill="#fff"/>
+<text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
+
+<text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#a8725f">COLORS</text>
+<text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#1a1a1a">TYPE</text>
+<text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#1a1a1a">ASSETS</text>
+<text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#1a1a1a">STYLE</text>
+
+<rect x="160" y="640" width="120" height="30" fill="transparent" style="cursor:pointer" onclick="go('colors')"/>
+<rect x="480" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('type')"/>
+<rect x="780" y="640" width="90" height="30" fill="transparent" style="cursor:pointer" onclick="go('assets')"/>
+<rect x="1090" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('style')"/>
+</svg>
+</div>
+
+<!-- TYPE -->
+<div class="section" id="sec-type">
+<svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect width="1366" height="768" fill="#fff"/>
+<text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
+
+<text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#1a1a1a">COLORS</text>
+<text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#a8725f">TYPE</text>
+<text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#1a1a1a">ASSETS</text>
+<text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#1a1a1a">STYLE</text>
+
+<rect x="160" y="640" width="120" height="30" fill="transparent" onclick="go('colors')"/>
+<rect x="480" y="640" width="80" height="30" fill="transparent" onclick="go('type')"/>
+<rect x="780" y="640" width="90" height="30" fill="transparent" onclick="go('assets')"/>
+<rect x="1090" y="640" width="80" height="30" fill="transparent" onclick="go('style')"/>
+</svg>
+</div>
+
+<!-- STYLE -->
+<div class="section" id="sec-style">
+<svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect width="1366" height="768" fill="#fff"/>
+<text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
+
+<text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#1a1a1a">COLORS</text>
+<text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#1a1a1a">TYPE</text>
+<text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#1a1a1a">ASSETS</text>
+<text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#a8725f">STYLE</text>
+
+<rect x="160" y="640" width="120" height="30" fill="transparent" onclick="go('colors')"/>
+<rect x="480" y="640" width="80" height="30" fill="transparent" onclick="go('type')"/>
+<rect x="780" y="640" width="90" height="30" fill="transparent" onclick="go('assets')"/>
+<rect x="1090" y="640" width="80" height="30" fill="transparent" onclick="go('style')"/>
+</svg>
+</div>
+
+</div>
+
+<script>
+function go(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+}
+</script>
+
+</body>
+</html>
