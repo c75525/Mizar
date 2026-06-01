@@ -1,223 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="https://use.typekit.net/pmd2vwf.css">
-<link href="https://fonts.googleapis.com/css2?family=Squada+One&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mizar Brand Guide</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/pmd2/fonts.googleapis.com/css2?family=Squada+One&family=Jost:wght@300;400;500;700&display=swapbal styles -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      font-family: 'Jost', sans-serif;
+    }
+
+    .root {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .root svg.frame {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+  </style>
 </head>
+
 <body>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
 
-.root {
-  width: 100%;
-  background: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-.root svg.frame {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.section { display: none; }
-.section.active { display: block; }
-</style>
-
-<div class="root">
-
-  <!-- ASSETS (default active) -->
-  <div class="section active" id="sec-assets">
-    <svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-      <defs>
-        <style>
-          .arp { font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif; font-weight: 200; }
-        </style>
-      </defs>
-      <rect width="1366" height="768" fill="#fff"/>
-      <!-- Mizar header logo -->
-      <text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
-      <path d="M564.45,146.49c7.31-17.31-.7-37.63-17.86-45.3l.4-.92,31.39,13.25,13.91-31.11.92.4c-7.31,17.31.7,37.63,17.86,45.3l-.4.92-31.39-13.25-13.91,31.11-.92-.4Z"/>
-      <path fill="#fff" d="M592.74,82.62h0c-7.47,17.69.58,38.11,18.11,45.95l-31.85-13.44-14.1,31.56h0c7.47-17.69-.58-38.11-18.11-45.95l31.85,13.44,14.1-31.56Z"/>
-      <!-- Nav: COLORS ASSETS(active=#a8725f) TYPE STYLE -->
-      <text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#1a1a1a">COLORS</text>
-      <text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#1a1a1a">TYPE</text>
-      <text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#a8725f">ASSETS</text>
-      <text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#1a1a1a">STYLE</text>
-      <!-- Alcor logo mark: Path_65 (A left), Path_75 (A right fill), Path_76 (swoosh base), Path_74 (starburst) -->
-      <path d="M540.48,393.91l23.46-40.75,15.38,26.79c18.86-5.87,38.01-10.74,57.39-14.59l-72.77-126.03-83.54,144.74-39.96,69.29c29.91-25.07,63.7-45.09,100.04-59.29"/>
-      <path d="M616.89,444.64l48.51,84.02h65.79l-71.02-122.87c-21.09,6.5-53.74,20.76-53.74,20.76l10.46,18.08Z"/>
-      <path d="M823.93,368.06c-196.43-16.65-375.73,52.8-426.93,160.6h65.8c34.41-39.79,83.86-75.3,143.79-102.1,0,0,32.66-14.27,53.74-20.76,68.83-22.54,140.98-33.26,213.39-31.71-16.33-2.54-32.81-4.75-49.78-6.18v.16Z"/>
-      <path d="M934.75,342.06c6.03-3.96,16.17-4.43,34.24-4.91-18.08-.64-28.38-1.12-34.24-4.91,3.09-5.66,6.99-10.84,11.58-15.37-4.61,4.46-9.78,8.29-15.38,11.41-3.97-6.03-4.43-16.17-4.91-34.24-.64,18.08-1.12,28.38-4.91,34.24-5.63-3.08-10.8-6.92-15.38-11.41,4.46,4.6,8.3,9.77,11.42,15.37-6.03,3.96-16.17,4.44-34.24,4.91,18.07.64,28.37,1.12,34.24,4.91-3.08,5.63-6.92,10.8-11.42,15.38,4.66-4.44,9.82-8.33,15.38-11.58,3.97,6.03,4.43,16.17,4.91,34.24.64-18.07,1.12-28.37,4.91-34.24,5.66,3.09,10.84,6.99,15.38,11.58-4.45-4.66-8.33-9.82-11.58-15.38Z"/>
-      <!-- Nav click targets -->
-      <rect x="160" y="640" width="120" height="30" fill="transparent" style="cursor:pointer" onclick="go('colors')"/>
-      <rect x="480" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('type')"/>
-      <rect x="780" y="640" width="90" height="30" fill="transparent" style="cursor:pointer" onclick="go('assets')"/>
-      <rect x="1090" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('style')"/>
-    </svg>
-  </div>
-
-  <!-- COLORS -->
-  <div class="section" id="sec-colors">
-    <svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width:100%;height:auto;display:block;">
-      <defs>
-        <style>
-          .arp { font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif; font-weight: 200; }
-        </style>
-        <linearGradient id="lg-c" x1="1603.65" y1="-102.15" x2="1478.09" y2="23.42" gradientTransform="translate(-927.97 422.87)" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#aa745a"/>
-          <stop offset=".17" stop-color="#a46d6c"/>
-          <stop offset=".28" stop-color="#97607d"/>
-          <stop offset=".43" stop-color="#8a5384"/>
-          <stop offset=".57" stop-color="#744683"/>
-          <stop offset=".74" stop-color="#604078"/>
-          <stop offset=".94" stop-color="#2c2f55"/>
-        </linearGradient>
-      </defs>
-      <rect width="1366" height="768" fill="#fff"/>
-      <!-- Mizar header -->
-      <text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
-      <path d="M564.45,146.49c7.31-17.31-.7-37.63-17.86-45.3l.4-.92,31.39,13.25,13.91-31.11.92.4c-7.31,17.31.7,37.63,17.86,45.3l-.4.92-31.39-13.25-13.91,31.11-.92-.4Z"/>
-      <path fill="#000" d="M592.74,82.62h0c-7.47,17.69.58,38.11,18.11,45.95l-31.85-13.44-14.1,31.56h0c7.47-17.69-.58-38.11-18.11-45.95l31.85,13.44,14.1-31.56Z"/>
-      <!-- Nav: COLORS(active) TYPE ASSETS STYLE -->
-      <text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#a8725f">COLORS</text>
-      <text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#1a1a1a">TYPE</text>
-      <text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#1a1a1a">ASSETS</text>
-      <text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#1a1a1a">STYLE</text>
-      <!-- Gradient bar (rotated rect) -->
-      <rect fill="url(#lg-c)" x="487.65" y="361.22" width="265.05" height="30.02" rx="8.87" ry="8.87" transform="translate(996.41 -243.95) rotate(90)"/>
-      <!-- Gradient dots -->
-      <path fill="#a8725f" stroke="#fff" stroke-miterlimit="10" d="M599.73,474.43c4.92,0,14.5,8.92,14.5,8.92,0,0-9.58,8.92-14.5,8.92s-8.92-3.99-8.92-8.92,3.99-8.92,8.92-8.92Z"/>
-      <path fill="#845084" stroke="#fff" stroke-miterlimit="10" d="M599.73,367.86c4.92,0,14.5,8.92,14.5,8.92,0,0-9.58,8.92-14.5,8.92s-8.92-3.99-8.92-8.92,3.99-8.92,8.92-8.92Z"/>
-      <path fill="#2c2f55" stroke="#fff" stroke-miterlimit="10" d="M599.73,252.93c4.92,0,14.5,8.92,14.5,8.92,0,0-9.58,8.92-14.5,8.92s-8.92-3.99-8.92-8.92,3.99-8.92,8.92-8.92Z"/>
-      <!-- Gradient text specs -->
-      <text class="arp" font-size="14" fill="#606060" transform="translate(193.79 267.92)">#2c2f55</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(277.78 267.92)">44, 47, 85</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(368.62 267.92)">48, 45, 0, 67</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(476.94 267.92)">Pantone 2766 C</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(249.59 382.2)">#845084</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(340.03 382.2)">132, 80, 132</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(439.03 382.2)">0, 39, 0, 48</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(532.75 382.2)">7655 C</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(250.04 491.85)">#A8725F</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(333.89 491.85)">168, 114, 95</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(432.78 491.85)">0, 32, 43, 34</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(533.19 491.85)">7524 C</text>
-      <!-- GRADIENT label -->
-      <text class="arp" font-size="14" fill="#606060" transform="translate(380.17 561.84)">GRADIENT</text>
-      <!-- Static circles -->
-      <!-- WHITE -->
-      <path fill="#fff" d="M728.76,293.82c-12.84,0-23.28-10.44-23.28-23.28s10.44-23.28,23.28-23.28,23.28,10.44,23.28,23.28-10.44,23.28-23.28,23.28Z"/>
-      <path fill="#606060" d="M728.76,247.76c12.56,0,22.78,10.22,22.78,22.78s-10.22,22.78-22.78,22.78-22.78-10.22-22.78-22.78,10.22-22.78,22.78-22.78M728.76,246.76c-13.13,0-23.78,10.65-23.78,23.78s10.65,23.78,23.78,23.78,23.78-10.65,23.78-23.78-10.65-23.78-23.78-23.78h0Z"/>
-      <text class="arp" font-size="14" fill="#1a1a1a" transform="translate(798.48 263.38)">WHITE</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(797.6 285.84)">#FFFFFF</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(876.53 285.84)">255, 255, 255</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(984.46 285.84)">0, 0, 0, 0</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(1058.96 285.84)">Paper White</text>
-      <!-- GOLD -->
-      <circle fill="#ffcb04" cx="728.76" cy="341" r="23.78"/>
-      <text class="arp" font-size="14" fill="#1a1a1a" transform="translate(796.68 333.84)">GOLD</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(795.8 356.3)">#FFCB05</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(876.79 356.3)">255, 203, 5</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(966.71 356.3)">0, 20, 98, 0</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(1057.16 356.3)">Pantone 116 C</text>
-      <!-- NAVY BLUE -->
-      <circle fill="#0c233f" cx="728.76" cy="411.46" r="23.78"/>
-      <text class="arp" font-size="14" fill="#1a1a1a" transform="translate(796.04 404.3)">NAVY BLUE</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(795.15 426.75)">#0C233F</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(877.74 426.75)">12, 35, 63</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(959.27 426.75)">81, 44, 0, 75</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(1056.51 426.75)">Pantone 296 C</text>
-      <!-- GRAY -->
-      <circle fill="#9093a0" cx="728.76" cy="481.92" r="23.78"/>
-      <text class="arp" font-size="14" fill="#1a1a1a" transform="translate(798.02 474.76)">GRAY</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(797.14 497.21)">#9194A1</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(874.39 497.21)">145, 148, 161</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(973.82 497.21)">10, 8, 0, 37</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(1058.5 497.21)">Pantone Cool Gray 7 C</text>
-      <!-- STATIC label -->
-      <text class="arp" font-size="14" fill="#606060" transform="translate(929.52 561.84)">STATIC</text>
-      <!-- Nav click targets -->
-      <rect x="160" y="640" width="120" height="30" fill="transparent" style="cursor:pointer" onclick="go('colors')"/>
-      <rect x="480" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('type')"/>
-      <rect x="780" y="640" width="90" height="30" fill="transparent" style="cursor:pointer" onclick="go('assets')"/>
-      <rect x="1090" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('style')"/>
-    </svg>
-  </div>
-
-  <!-- TYPE -->
-  <div class="section" id="sec-type">
-    <svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-      <defs>
-        <style>
-          .arp { font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif; font-weight: 200; }
-        </style>
-      </defs>
-      <rect width="1366" height="768" fill="#fff"/>
-      <!-- Mizar header -->
-      <text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
-      <path d="M564.45,146.49c7.31-17.31-.7-37.63-17.86-45.3l.4-.92,31.39,13.25,13.91-31.11.92.4c-7.31,17.31.7,37.63,17.86,45.3l-.4.92-31.39-13.25-13.91,31.11-.92-.4Z"/>
-      <path fill="#fff" d="M592.74,82.62h0c-7.47,17.69.58,38.11,18.11,45.95l-31.85-13.44-14.1,31.56h0c7.47-17.69-.58-38.11-18.11-45.95l31.85,13.44,14.1-31.56Z"/>
-      <!-- Nav: COLORS TYPE(active) ASSETS STYLE -->
-      <text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#1a1a1a">COLORS</text>
-      <text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#a8725f">TYPE</text>
-      <text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#1a1a1a">ASSETS</text>
-      <text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#1a1a1a">STYLE</text>
-      <!-- Jost Bold -->
-      <text font-family="'Jost', sans-serif" font-weight="700" font-size="72" fill="#606060" transform="translate(213.93 402)">Jost</text>
-      <!-- Alcor body specimens -->
-      <text font-family="'Jost', sans-serif" font-weight="500" font-size="48" fill="#606060" transform="translate(385.9 295.64)">Alcor</text>
-      <text font-family="'Jost', sans-serif" font-weight="400" font-size="48" fill="#606060" transform="translate(388.2 376.69)">Alcor</text>
-      <text font-family="'Jost', sans-serif" font-weight="300" font-size="48" fill="#606060" transform="translate(389.57 457.75)">Alcor</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(423.46 509.65)">BODY</text>
-      <!-- Squada One -->
-      <text font-family="'Squada One', sans-serif" font-size="72" fill="#606060" transform="translate(696.97 406.59)">Squada One</text>
-      <!-- Logo specimen -->
-      <text font-family="'Squada One', sans-serif" font-size="48" fill="#606060" transform="translate(1055.92 378.19)">ALCOR</text>
-      <text class="arp" font-size="14" fill="#606060" transform="translate(1091.06 425.82)">LOGO</text>
-      <!-- Nav click targets -->
-      <rect x="160" y="640" width="120" height="30" fill="transparent" style="cursor:pointer" onclick="go('colors')"/>
-      <rect x="480" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('type')"/>
-      <rect x="780" y="640" width="90" height="30" fill="transparent" style="cursor:pointer" onclick="go('assets')"/>
-      <rect x="1090" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('style')"/>
-    </svg>
-  </div>
-
-  <!-- STYLE -->
-  <div class="section" id="sec-style">
-    <svg viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-      <defs>
-        <style>
-          .arp { font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif; font-weight: 200; }
-        </style>
-      </defs>
-      <rect width="1366" height="768" fill="#fff"/>
-      <!-- Mizar header -->
-      <text class="arp" font-size="77.21" transform="translate(630.52 140.38)">Mizar</text>
-      <path d="M564.45,146.49c7.31-17.31-.7-37.63-17.86-45.3l.4-.92,31.39,13.25,13.91-31.11.92.4c-7.31,17.31.7,37.63,17.86,45.3l-.4.92-31.39-13.25-13.91,31.11-.92-.4Z"/>
-      <path fill="#fff" d="M592.74,82.62h0c-7.47,17.69.58,38.11,18.11,45.95l-31.85-13.44-14.1,31.56h0c7.47-17.69-.58-38.11-18.11-45.95l31.85,13.44,14.1-31.56Z"/>
-      <!-- Nav: COLORS TYPE ASSETS STYLE(active) -->
-      <text class="arp" font-size="14" transform="translate(205.43 658.61)" fill="#1a1a1a">COLORS</text>
-      <text class="arp" font-size="14" transform="translate(517.38 658.61)" fill="#1a1a1a">TYPE</text>
-      <text class="arp" font-size="14" transform="translate(809.65 658.61)" fill="#1a1a1a">ASSETS</text>
-      <text class="arp" font-size="14" transform="translate(1118.97 658.61)" fill="#a8725f">STYLE</text>
-      <!-- TBD -->
-      <text font-family="ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif" font-weight="200" font-size="24" fill="#606060" transform="translate(659.37 390.97)">TBD</text>
-      <!-- Nav click targets -->
-      <rect x="160" y="640" width="120" height="30" fill="transparent" style="cursor:pointer" onclick="go('colors')"/>
-      <rect x="480" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('type')"/>
-      <rect x="780" y="640" width="90" height="30" fill="transparent" style="cursor:pointer" onclick="go('assets')"/>
-      <rect x="1090" y="640" width="80" height="30" fill="transparent" style="cursor:pointer" onclick="go('style')"/>
-    </svg>
-  </div>
-
-</div>
-
-<script>
-  function go(name) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById('sec-' + name).classList.add('active');
-  }
-</script>
-</body>
-</html>
