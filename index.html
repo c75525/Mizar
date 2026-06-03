@@ -362,8 +362,8 @@ body.scrolled .home-subtitle {
 }
 
 .gradient-pill {
-  width: 24px;
-  height: 210px;
+  width: 30px;
+  height: 260px;
   border-radius: 12px;
   background: linear-gradient(180deg,
     #2c2f55 0%,
@@ -397,7 +397,7 @@ body.scrolled .home-subtitle {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 210px;
+  height: 260px;
   padding: 4px 0;
 }
 
@@ -450,8 +450,8 @@ body.scrolled .home-subtitle {
 }
 
 .color-bubble {
-  width: 46px;
-  height: 46px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   flex-shrink: 0;
   cursor: pointer;
@@ -466,7 +466,7 @@ body.scrolled .home-subtitle {
 .color-name {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   color: #1a1a1a;
   cursor: pointer;
@@ -484,7 +484,7 @@ body.scrolled .home-subtitle {
 .spec {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
-  font-size: 10.5px;
+  font-size: 12px;
   color: #888;
   letter-spacing: 0.03em;
   cursor: pointer;
@@ -517,16 +517,16 @@ body.scrolled .home-subtitle {
 .type-jost-word {
   font-family: 'Jost', sans-serif;
   font-weight: 700;
-  font-size: 64px;
+  font-size: 78px;
   color: #606060;
   line-height: 1;
   display: block;
 }
 
 .type-body-col { flex: 0 0 auto; padding-right: 48px; }
-.type-alcor-lg { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 40px; color: #606060; line-height: 1.3; display: block; }
-.type-alcor-md { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 33px; color: #777; line-height: 1.3; display: block; }
-.type-alcor-sm { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 27px; color: #999; line-height: 1.3; display: block; }
+.type-alcor-lg { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 48px; color: #606060; line-height: 1.3; display: block; }
+.type-alcor-md { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 40px; color: #777; line-height: 1.3; display: block; }
+.type-alcor-sm { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 32px; color: #999; line-height: 1.3; display: block; }
 .type-label {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
@@ -542,7 +542,7 @@ body.scrolled .home-subtitle {
 .type-squada-link:hover { opacity: 0.6; }
 .type-squada-word {
   font-family: 'Squada One', sans-serif;
-  font-size: 56px;
+  font-size: 68px;
   color: #606060;
   line-height: 1;
   display: block;
@@ -551,7 +551,7 @@ body.scrolled .home-subtitle {
 .type-logo-col { flex: 0 0 auto; }
 .type-logo-word {
   font-family: 'Squada One', sans-serif;
-  font-size: 32px;
+  font-size: 38px;
   color: #888;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -601,7 +601,25 @@ body.scrolled .home-subtitle {
 /* ── Mobile ─────────────────────────────────── */
 @media (max-width: 680px) {
 
-  /* Nav: shrink to fit, wrap if needed */
+  /* Hero */
+  .mizar-wordmark {
+    font-size: 42px;
+  }
+
+  .mizar-header svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .home-subtitle {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    max-width: 90vw;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Nav */
   .mizar-nav {
     width: 90vw;
     gap: 6vw;
@@ -616,11 +634,18 @@ body.scrolled .home-subtitle {
     width: 100vw;
   }
 
-  /* Colors: stack gradient on top, static below */
+  /* Colors page */
+  #sec-colors {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+
   .colors-content {
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 24px;
+    transform: scale(0.85);
+    transform-origin: center center;
   }
 
   .col-divider {
@@ -655,7 +680,20 @@ body.scrolled .home-subtitle {
     gap: 8px;
   }
 
-  /* Type: Jost group on top, Squada group below */
+  .color-name {
+    font-size: 10px;
+  }
+
+  .spec {
+    font-size: 9px;
+  }
+
+  .color-bubble {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Type */
   .type-content {
     flex-direction: column;
     align-items: center;
@@ -663,16 +701,42 @@ body.scrolled .home-subtitle {
     padding: 20px 0;
   }
 
-  .type-jost-col  { padding-right: 0; }
-  .type-body-col  { padding-right: 0; text-align: center; }
-  .type-squada-col { padding-right: 0; }
-  .type-logo-col  { text-align: center; }
+  .type-jost-col {
+    padding-right: 0;
+  }
 
-  .type-jost-word   { font-size: 48px; }
-  .type-squada-word { font-size: 42px; }
-  .type-alcor-lg    { font-size: 32px; }
-  .type-alcor-md    { font-size: 26px; }
-  .type-alcor-sm    { font-size: 22px; }
+  .type-body-col {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .type-squada-col {
+    padding-right: 0;
+  }
+
+  .type-logo-col {
+    text-align: center;
+  }
+
+  .type-jost-word {
+    font-size: 48px;
+  }
+
+  .type-squada-word {
+    font-size: 42px;
+  }
+
+  .type-alcor-lg {
+    font-size: 32px;
+  }
+
+  .type-alcor-md {
+    font-size: 26px;
+  }
+
+  .type-alcor-sm {
+    font-size: 22px;
+  }
 }
 </style>
 </head>
@@ -735,11 +799,23 @@ body.scrolled .home-subtitle {
 <path id="Path_74" data-name="Path 74" d="M537.75,102.72c6.03-3.96,16.17-4.43,34.24-4.91-18.08-.64-28.38-1.12-34.24-4.91,3.09-5.66,6.99-10.84,11.58-15.37-4.61,4.46-9.78,8.29-15.38,11.41-3.97-6.03-4.43-16.17-4.91-34.24-.64,18.08-1.12,28.38-4.91,34.24-5.63-3.08-10.8-6.92-15.38-11.41,4.46,4.6,8.3,9.77,11.42,15.37-6.03,3.96-16.17,4.44-34.24,4.91,18.07.64,28.37,1.12,34.24,4.91-3.08,5.63-6.92,10.8-11.42,15.38,4.66-4.44,9.82-8.33,15.38-11.58,3.97,6.03,4.43,16.17,4.91,34.24.64-18.07,1.12-28.37,4.91-34.24,5.66,3.09,10.84,6.99,15.38,11.58-4.45-4.66-8.33-9.82-11.58-15.38Z"/>          </g>
         </svg>
       </div>
-      <div class="download-bar">
-        <button class="dl-btn" onclick="dlPart('a')"> Download A Mark </button>
-        <button class="dl-btn" onclick="dlPart('swoosh')">Download Swoosh</button>
-        <button class="dl-btn" onclick="dlPart('star')">Download Starburst</button>
-      </div>
+     <div class="download-bar">
+  <button class="dl-btn" onclick="dlFull()">
+    Download Full Logo
+  </button>
+
+  <button class="dl-btn" onclick="dlPart('a')">
+    Download A Mark
+  </button>
+
+  <button class="dl-btn" onclick="dlPart('swoosh')">
+    Download Swoosh
+  </button>
+
+  <button class="dl-btn" onclick="dlPart('star')">
+    Download Starburst
+  </button>
+</div>
     </div>
 
     <div class="mizar-nav">
@@ -933,7 +1009,8 @@ const headerInner   = document.querySelector('.mizar-header');
 
 function setHeroScale() {
   const naturalWidth = headerInner.getBoundingClientRect().width;
-  const scale = 430 / naturalWidth;
+  const targetWidth = window.innerWidth <= 680 ? 320 : 430;
+  const scale = targetWidth / naturalWidth;
   document.documentElement.style.setProperty('--hero-scale', scale.toFixed(4));
 
   // After scale is applied, measure where the wrapper's bottom actually sits
