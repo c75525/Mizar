@@ -284,7 +284,7 @@ body.scrolled .home-subtitle {
   overflow: visible;
 }
 
-/* Each logo part: hover turns fill white, adds drop shadow */
+/* Each logo part: hover turns fill yellow */
 .logo-part {
   cursor: pointer;
 }
@@ -297,8 +297,29 @@ body.scrolled .home-subtitle {
 .logo-part:hover path {
   fill: #FFCB05;
 }
-.svg-bg {
-  transition: fill 0.2s;
+
+/* ── Alcor draw-in animation ──────────────────── */
+#alcor-svg.animate-draw .logo-part path {
+  fill: transparent;
+  stroke: #000;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  transition: none;
+}
+
+#alcor-svg.animate-draw #Path_65 { animation: alcorDraw 2.2s ease forwards, alcorFill 0.8s ease 2.1s forwards; }
+#alcor-svg.animate-draw #Path_74 { animation: alcorDraw 2.2s ease 0.15s forwards, alcorFill 0.8s ease 2.25s forwards; }
+#alcor-svg.animate-draw #Path_75 { animation: alcorDraw 2.2s ease 0.3s forwards, alcorFill 0.8s ease 2.4s forwards; }
+#alcor-svg.animate-draw #Path_76 { animation: alcorDraw 2.2s ease 0.45s forwards, alcorFill 0.8s ease 2.55s forwards; }
+
+@keyframes alcorDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes alcorFill {
+  to { fill: #000; stroke: transparent; }
 }
 
 .download-bar {
@@ -334,82 +355,22 @@ body.scrolled .home-subtitle {
 /* Gradient side */
 .gradient-side {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 16px;
-  position: relative;
+  justify-content: center;
 }
 
-/* Inner row: pill + rows side by side */
-.gradient-side > .gradient-pill-wrap,
-.gradient-side > .gradient-rows {
-  /* stacked via flex-col on .gradient-side but pill+rows are a sub-row */
+.gradient-svg {
+  width: 460px;
+  height: auto;
+  overflow: visible;
 }
 
-.gradient-side {
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 0;
+.gradient-svg text:hover {
+  fill: #111 !important;
 }
 
-.gradient-pill-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 20px;
-  margin-top: 4px;
-}
-
-.gradient-pill {
-  width: 30px;
-  height: 260px;
-  border-radius: 12px;
-  background: linear-gradient(180deg,
-    #2c2f55 0%,
-    #604078 26%,
-    #744683 43%,
-    #8a5384 57%,
-    #97607d 72%,
-    #a46d6c 83%,
-    #aa745a 100%
-  );
-  position: relative;
-  flex-shrink: 0;
-}
-
-.gpill-dot {
-  position: absolute;
-  right: -6px;
-  display: flex;
-  align-items: center;
-}
-
-.gpill-dot-circle {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
-}
-
-.gradient-rows {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 260px;
-  padding: 4px 0;
-}
-
-.grad-row {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.grad-row-specs {
-  display: flex;
-  gap: 14px;
+.gradient-svg path:hover {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
 }
 
 /* Sublabel sits below the whole gradient group */
@@ -440,7 +401,7 @@ body.scrolled .home-subtitle {
 .static-rows {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 24px;
 }
 
 .color-row {
@@ -450,15 +411,15 @@ body.scrolled .home-subtitle {
 }
 
 .color-bubble {
-  width: 54px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   flex-shrink: 0;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  transition: filter 0.2s;
 }
 .color-bubble:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,0.22));
 }
 
 .color-info { display: flex; flex-direction: column; gap: 2px; }
@@ -466,8 +427,8 @@ body.scrolled .home-subtitle {
 .color-name {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 14px;
+  letter-spacing: 0.03em;
   color: #1a1a1a;
   cursor: pointer;
   display: block;
@@ -484,8 +445,8 @@ body.scrolled .home-subtitle {
 .spec {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
-  font-size: 12px;
-  color: #888;
+  font-size: 14px;
+  color: #606060;
   letter-spacing: 0.03em;
   cursor: pointer;
   transition: color 0.18s;
@@ -496,7 +457,7 @@ body.scrolled .home-subtitle {
 .section-sublabel {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.14em;
   color: #bbb;
   text-transform: uppercase;
@@ -517,16 +478,16 @@ body.scrolled .home-subtitle {
 .type-jost-word {
   font-family: 'Jost', sans-serif;
   font-weight: 700;
-  font-size: 78px;
+  font-size: 64px;
   color: #606060;
   line-height: 1;
   display: block;
 }
 
 .type-body-col { flex: 0 0 auto; padding-right: 48px; }
-.type-alcor-lg { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 48px; color: #606060; line-height: 1.3; display: block; }
-.type-alcor-md { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 40px; color: #777; line-height: 1.3; display: block; }
-.type-alcor-sm { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 32px; color: #999; line-height: 1.3; display: block; }
+.type-alcor-lg { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 40px; color: #606060; line-height: 1.3; display: block; }
+.type-alcor-md { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 33px; color: #777; line-height: 1.3; display: block; }
+.type-alcor-sm { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 27px; color: #999; line-height: 1.3; display: block; }
 .type-label {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
@@ -542,7 +503,7 @@ body.scrolled .home-subtitle {
 .type-squada-link:hover { opacity: 0.6; }
 .type-squada-word {
   font-family: 'Squada One', sans-serif;
-  font-size: 68px;
+  font-size: 56px;
   color: #606060;
   line-height: 1;
   display: block;
@@ -551,7 +512,7 @@ body.scrolled .home-subtitle {
 .type-logo-col { flex: 0 0 auto; }
 .type-logo-word {
   font-family: 'Squada One', sans-serif;
-  font-size: 38px;
+  font-size: 32px;
   color: #888;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -601,25 +562,7 @@ body.scrolled .home-subtitle {
 /* ── Mobile ─────────────────────────────────── */
 @media (max-width: 680px) {
 
-  /* Hero */
-  .mizar-wordmark {
-    font-size: 42px;
-  }
-
-  .mizar-header svg {
-    width: 34px;
-    height: 34px;
-  }
-
-  .home-subtitle {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    max-width: 90vw;
-    white-space: normal;
-    text-align: center;
-  }
-
-  /* Nav */
+  /* Nav: shrink to fit, wrap if needed */
   .mizar-nav {
     width: 90vw;
     gap: 6vw;
@@ -634,18 +577,11 @@ body.scrolled .home-subtitle {
     width: 100vw;
   }
 
-  /* Colors page */
-  #sec-colors {
-    padding-top: 80px;
-    padding-bottom: 120px;
-  }
-
+  /* Colors: stack gradient on top, static below */
   .colors-content {
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    transform: scale(0.85);
-    transform-origin: center center;
+    gap: 36px;
   }
 
   .col-divider {
@@ -680,20 +616,7 @@ body.scrolled .home-subtitle {
     gap: 8px;
   }
 
-  .color-name {
-    font-size: 10px;
-  }
-
-  .spec {
-    font-size: 9px;
-  }
-
-  .color-bubble {
-    width: 38px;
-    height: 38px;
-  }
-
-  /* Type */
+  /* Type: Jost group on top, Squada group below */
   .type-content {
     flex-direction: column;
     align-items: center;
@@ -701,42 +624,16 @@ body.scrolled .home-subtitle {
     padding: 20px 0;
   }
 
-  .type-jost-col {
-    padding-right: 0;
-  }
+  .type-jost-col  { padding-right: 0; }
+  .type-body-col  { padding-right: 0; text-align: center; }
+  .type-squada-col { padding-right: 0; }
+  .type-logo-col  { text-align: center; }
 
-  .type-body-col {
-    padding-right: 0;
-    text-align: center;
-  }
-
-  .type-squada-col {
-    padding-right: 0;
-  }
-
-  .type-logo-col {
-    text-align: center;
-  }
-
-  .type-jost-word {
-    font-size: 48px;
-  }
-
-  .type-squada-word {
-    font-size: 42px;
-  }
-
-  .type-alcor-lg {
-    font-size: 32px;
-  }
-
-  .type-alcor-md {
-    font-size: 26px;
-  }
-
-  .type-alcor-sm {
-    font-size: 22px;
-  }
+  .type-jost-word   { font-size: 48px; }
+  .type-squada-word { font-size: 42px; }
+  .type-alcor-lg    { font-size: 32px; }
+  .type-alcor-md    { font-size: 26px; }
+  .type-alcor-sm    { font-size: 22px; }
 }
 </style>
 </head>
@@ -799,23 +696,11 @@ body.scrolled .home-subtitle {
 <path id="Path_74" data-name="Path 74" d="M537.75,102.72c6.03-3.96,16.17-4.43,34.24-4.91-18.08-.64-28.38-1.12-34.24-4.91,3.09-5.66,6.99-10.84,11.58-15.37-4.61,4.46-9.78,8.29-15.38,11.41-3.97-6.03-4.43-16.17-4.91-34.24-.64,18.08-1.12,28.38-4.91,34.24-5.63-3.08-10.8-6.92-15.38-11.41,4.46,4.6,8.3,9.77,11.42,15.37-6.03,3.96-16.17,4.44-34.24,4.91,18.07.64,28.37,1.12,34.24,4.91-3.08,5.63-6.92,10.8-11.42,15.38,4.66-4.44,9.82-8.33,15.38-11.58,3.97,6.03,4.43,16.17,4.91,34.24.64-18.07,1.12-28.37,4.91-34.24,5.66,3.09,10.84,6.99,15.38,11.58-4.45-4.66-8.33-9.82-11.58-15.38Z"/>          </g>
         </svg>
       </div>
-     <div class="download-bar">
-  <button class="dl-btn" onclick="dlFull()">
-    Download Full Logo
-  </button>
-
-  <button class="dl-btn" onclick="dlPart('a')">
-    Download A Mark
-  </button>
-
-  <button class="dl-btn" onclick="dlPart('swoosh')">
-    Download Swoosh
-  </button>
-
-  <button class="dl-btn" onclick="dlPart('star')">
-    Download Starburst
-  </button>
-</div>
+      <div class="download-bar">
+        <button class="dl-btn" onclick="dlPart('a')"> Download A Mark </button>
+        <button class="dl-btn" onclick="dlPart('swoosh')">Download Swoosh</button>
+        <button class="dl-btn" onclick="dlPart('star')">Download Starburst</button>
+      </div>
     </div>
 
     <div class="mizar-nav">
@@ -833,47 +718,58 @@ body.scrolled .home-subtitle {
 
       <!-- ── Gradient side ── -->
       <div class="gradient-side">
-        <div class="gradient-pill-wrap">
-          <div class="gradient-pill">
-            <!-- teardrop dots pointing right -->
-            <div class="gpill-dot" style="top: 9px;">
-              <div class="gpill-dot-circle" style="background:#2c2f55; border-color:#fff;"></div>
-            </div>
-            <div class="gpill-dot" style="top: 50%; transform: translateY(-50%);">
-              <div class="gpill-dot-circle" style="background:#845084; border-color:#fff;"></div>
-            </div>
-            <div class="gpill-dot" style="bottom: 9px;">
-              <div class="gpill-dot-circle" style="background:#a8725f; border-color:#fff;"></div>
-            </div>
-          </div>
-        </div>
-        <div class="gradient-rows">
-          <div class="grad-row">
-            <span class="color-name" onclick="copy('#2c2f55')">#2c2f55</span>
-            <div class="grad-row-specs">
-              <span class="spec" onclick="copy('44, 47, 85')">44, 47, 85</span>
-              <span class="spec" onclick="copy('48, 45, 0, 67')">48, 45, 0, 67</span>
-              <span class="spec" onclick="copy('Pantone 2766 C')">Pantone 2766 C</span>
-            </div>
-          </div>
-          <div class="grad-row">
-            <span class="color-name" onclick="copy('#845084')">#845084</span>
-            <div class="grad-row-specs">
-              <span class="spec" onclick="copy('132, 80, 132')">132, 80, 132</span>
-              <span class="spec" onclick="copy('0, 39, 0, 48')">0, 39, 0, 48</span>
-              <span class="spec" onclick="copy('7655 C')">7655 C</span>
-            </div>
-          </div>
-          <div class="grad-row">
-            <span class="color-name" onclick="copy('#A8725F')">#A8725F</span>
-            <div class="grad-row-specs">
-              <span class="spec" onclick="copy('168, 114, 95')">168, 114, 95</span>
-              <span class="spec" onclick="copy('0, 32, 43, 34')">0, 32, 43, 34</span>
-              <span class="spec" onclick="copy('7524 C')">7524 C</span>
-            </div>
-          </div>
-        </div>
-        <div class="section-sublabel colors-sublabel">Gradient</div>
+        <svg class="gradient-svg" viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lg-c" x1="1451.9" y1="1071.4" x2="1326.3" y2="945.8"
+              gradientTransform="translate(-589.5 -1263.3) rotate(90) scale(1 -1)"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0"   stop-color="#aa745a"/>
+              <stop offset=".2"  stop-color="#a46d6c"/>
+              <stop offset=".3"  stop-color="#97607d"/>
+              <stop offset=".4"  stop-color="#8a5384"/>
+              <stop offset=".6"  stop-color="#744683"/>
+              <stop offset=".7"  stop-color="#604078"/>
+              <stop offset=".9"  stop-color="#2c2f55"/>
+            </linearGradient>
+          </defs>
+
+          <g transform="translate(6 12)">
+            <!-- Gradient pill -->
+            <rect fill="url(#lg-c)" x="411.4" y=".5" width="30" height="265" rx="8.9" ry="8.9"/>
+
+            <!-- Teardrop eyedroppers — tip left, bulge right, sitting on left edge of pill -->
+            <path fill="#2c2f55" stroke="#fff" stroke-miterlimit="10"
+              d="M405.9,9.7c4.9,0,14.5,8.9,14.5,8.9,0,0-9.6,8.9-14.5,8.9s-8.9-4-8.9-8.9,4-8.9,8.9-8.9Z"
+              style="cursor:pointer" onclick="copy('#2c2f55')"/>
+            <path fill="#845084" stroke="#fff" stroke-miterlimit="10"
+              d="M405.9,124.7c4.9,0,14.5,8.9,14.5,8.9,0,0-9.6,8.9-14.5,8.9s-8.9-4-8.9-8.9,4-8.9,8.9-8.9Z"
+              style="cursor:pointer" onclick="copy('#845084')"/>
+            <path fill="#a8725f" stroke="#fff" stroke-miterlimit="10"
+              d="M405.9,231.2c4.9,0,14.5,8.9,14.5,8.9,0,0-9.6,8.9-14.5,8.9s-8.9-4-8.9-8.9,4-8.9,8.9-8.9Z"
+              style="cursor:pointer" onclick="copy('#A8725F')"/>
+
+            <!-- Row 1 -->
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(0 24.7)" style="cursor:pointer" onclick="copy('#2c2f55')">#2c2f55</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(84 24.7)" style="cursor:pointer" onclick="copy('44, 47, 85')">44, 47, 85</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(174.8 24.7)" style="cursor:pointer" onclick="copy('48, 45, 0, 67')">48, 45, 0, 67</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(283.2 24.7)" style="cursor:pointer" onclick="copy('Pantone 2766 C')">Pantone 2766 C</text>
+
+            <!-- Row 2 -->
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(55.8 139)" style="cursor:pointer" onclick="copy('#845084')">#845084</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(146.2 139)" style="cursor:pointer" onclick="copy('132, 80, 132')">132, 80, 132</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(245.2 139)" style="cursor:pointer" onclick="copy('0, 39, 0, 48')">0, 39, 0, 48</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(339 139)" style="cursor:pointer" onclick="copy('7655 C')">7655 C</text>
+
+            <!-- Row 3 -->
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(56.2 248.6)" style="cursor:pointer" onclick="copy('#A8725F')">#A8725F</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(140.1 248.6)" style="cursor:pointer" onclick="copy('168, 114, 95')">168, 114, 95</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(239 248.6)" style="cursor:pointer" onclick="copy('0, 32, 43, 34')">0, 32, 43, 34</text>
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#606060" transform="translate(339.4 248.6)" style="cursor:pointer" onclick="copy('7524 C')">7524 C</text>
+
+            <!-- GRADIENT label -->
+            <text font-family="ArponaSans-ExtraLight,'arpona-sans',ArponaSans,sans-serif" font-weight="200" font-size="14" fill="#bbb" transform="translate(175 310)">GRADIENT</text>
+          </g>
+        </svg>
       </div>
 
       <div class="col-divider"></div>
@@ -1009,8 +905,7 @@ const headerInner   = document.querySelector('.mizar-header');
 
 function setHeroScale() {
   const naturalWidth = headerInner.getBoundingClientRect().width;
-  const targetWidth = window.innerWidth <= 680 ? 320 : 430;
-  const scale = targetWidth / naturalWidth;
+  const scale = 430 / naturalWidth;
   document.documentElement.style.setProperty('--hero-scale', scale.toFixed(4));
 
   // After scale is applied, measure where the wrapper's bottom actually sits
@@ -1037,7 +932,21 @@ function updateHeader() {
 scrollContainer.addEventListener("scroll", updateHeader);
 window.addEventListener("load", updateHeader);
 
-/* ── Section Observation + Nav Active State ──────────────────── */
+/* ── Alcor draw animation — fires once on first visit ──────────────────── */
+let alcorAnimated = false;
+const alcorSvg = document.getElementById('alcor-svg');
+
+function triggerAlcorAnimation() {
+  if (alcorAnimated) return;
+  alcorAnimated = true;
+  alcorSvg.classList.add('animate-draw');
+  // After animation fully completes, remove class so hover works cleanly
+  setTimeout(() => {
+    alcorSvg.classList.remove('animate-draw');
+  }, 3500);
+}
+
+
 const container = document.querySelector('.page-wrap');
 const sections = document.querySelectorAll(".section");
 
@@ -1052,6 +961,8 @@ function setActiveSection(activeEl) {
   navLinks.forEach(link => {
     link.classList.toggle('nav-active', link.getAttribute('href') === activeId);
   });
+
+  if (activeEl.id === 'sec-assets') triggerAlcorAnimation();
 }
 
 const observer = new IntersectionObserver((entries) => {
