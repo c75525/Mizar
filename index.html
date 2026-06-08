@@ -347,7 +347,7 @@ body.scrolled .home-subtitle {
 /* ── COLORS ──────────────────────────────── */
 .colors-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 50px;
 }
@@ -355,8 +355,15 @@ body.scrolled .home-subtitle {
 /* Gradient side */
 .gradient-side {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+}
+
+.static-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 14px;
 }
 
 .gradient-svg {
@@ -387,7 +394,7 @@ body.scrolled .home-subtitle {
   background: rgba(0,0,0,0.07);
   align-self: stretch;
   flex-shrink: 0;
-  margin: 0 10px;
+  margin: 14px 10px 0;
 }
 
 /* Static side */
@@ -534,7 +541,10 @@ body.scrolled .home-subtitle {
   color: #ccc;
 }
 
-/* ── Toast ─────────────────────────────────── */
+/* Mobile colors block — hidden on desktop */
+.colors-mobile { display: none; }
+
+
 .toast {
   position: fixed;
   bottom: 28px;
@@ -577,43 +587,92 @@ body.scrolled .home-subtitle {
     width: 100vw;
   }
 
-  /* Colors: stack gradient on top, static below */
-  .colors-content {
+  /* Colors: hide desktop, show mobile layout */
+  .colors-content { display: none; }
+  .col-divider    { display: none; }
+
+  .colors-mobile {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 48px;
+    width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+    transform: none;
   }
 
-  .col-divider {
-    width: 60px;
-    height: 1px;
-    align-self: auto;
-    margin: 0;
+  .cm-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
   }
 
-  .gradient-side {
+  .cm-label {
+    font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    letter-spacing: 0.18em;
+    color: #bbb;
+    text-transform: uppercase;
+  }
+
+  .cm-bubbles {
+    display: flex;
     flex-direction: row;
-    align-items: flex-start;
     justify-content: center;
+    gap: 20px;
+    width: 100%;
   }
 
-  .gradient-rows {
+  .cm-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cm-bubble {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+  .cm-bubble:hover { filter: drop-shadow(0 3px 10px rgba(0,0,0,0.25)); }
+
+  .cm-hex {
+    font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    color: #606060;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .cm-hex:hover { color: #111; }
+
+  .cm-grad-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 316px;
+    gap: 0;
+  }
+
+  .cm-grad-hexes {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .cm-grad-svg {
+    width: 316px;
     height: auto;
-    gap: 18px;
-    justify-content: flex-start;
-  }
-
-  .grad-row-specs {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .static-rows {
-    gap: 14px;
-  }
-
-  .color-specs {
-    gap: 8px;
+    overflow: visible;
   }
 
   /* Type: Jost group on top, Squada group below */
@@ -622,6 +681,8 @@ body.scrolled .home-subtitle {
     align-items: center;
     gap: 32px;
     padding: 20px 0;
+    transform: scale(0.8);
+    transform-origin: center center;
   }
 
   .type-jost-col  { padding-right: 0; }
@@ -634,6 +695,28 @@ body.scrolled .home-subtitle {
   .type-alcor-lg    { font-size: 32px; }
   .type-alcor-md    { font-size: 26px; }
   .type-alcor-sm    { font-size: 22px; }
+
+  /* Hero: scale down wordmark and subtitle */
+  .mizar-header-wrapper {
+    transform: translate(-50%, -60%) scale(calc(var(--hero-scale, 1) * 0.62));
+  }
+  body.scrolled .mizar-header-wrapper {
+    transform: translateX(-50%) scale(0.9);
+  }
+  .home-subtitle {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  /* Colors: scale down both sides */
+  .colors-content {
+    transform: scale(0.62);
+    transform-origin: center center;
+    gap: 30px;
+  }
+  .gradient-svg {
+    width: 340px;
+  }
 }
 </style>
 </head>
@@ -831,6 +914,71 @@ body.scrolled .home-subtitle {
           </div>
         </div>
         <div class="section-sublabel colors-sublabel">Static</div>
+      </div>
+
+    </div>
+
+    <!-- ── Mobile colors layout ── -->
+    <div class="colors-mobile">
+
+      <!-- STATIC section -->
+      <div class="cm-section">
+        <div class="cm-label">STATIC</div>
+        <div class="cm-bubbles">
+          <div class="cm-swatch">
+            <div class="cm-bubble" style="background:#fff; border:0.5px solid #ccc;" onclick="copy('#FFFFFF')"></div>
+            <span class="cm-hex" onclick="copy('#FFFFFF')">#FFFFFF</span>
+          </div>
+          <div class="cm-swatch">
+            <div class="cm-bubble" style="background:#FFCB04;" onclick="copy('#FFCB05')"></div>
+            <span class="cm-hex" onclick="copy('#FFCB05')">#FFCB05</span>
+          </div>
+          <div class="cm-swatch">
+            <div class="cm-bubble" style="background:#0C233F;" onclick="copy('#0C233F')"></div>
+            <span class="cm-hex" onclick="copy('#0C233F')">#0C233F</span>
+          </div>
+          <div class="cm-swatch">
+            <div class="cm-bubble" style="background:#9093A0;" onclick="copy('#9194A1')"></div>
+            <span class="cm-hex" onclick="copy('#9194A1')">#9194A1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRADIENT section -->
+      <div class="cm-section">
+        <div class="cm-label">GRADIENT</div>
+        <div class="cm-grad-wrap">
+          <div class="cm-grad-hexes">
+            <span class="cm-hex" onclick="copy('#A8725F')" style="flex:0 0 auto; width:33%; text-align:center;">#A8725F</span>
+            <span class="cm-hex" onclick="copy('#845084')" style="flex:0 0 auto; width:34%; text-align:center;">#845084</span>
+            <span class="cm-hex" onclick="copy('#2c2f55')" style="flex:0 0 auto; width:33%; text-align:center;">#2c2f55</span>
+          </div>
+          <svg class="cm-grad-svg" viewBox="0 0 310.71 52.99" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lg-m" x1="199.41" y1="-1793.46" x2="52.77" y2="-1646.82" gradientTransform="translate(20.77 1763.51)" gradientUnits="userSpaceOnUse">
+                <stop offset="0"   stop-color="#aa745a"/>
+                <stop offset=".17" stop-color="#a46d6c"/>
+                <stop offset=".28" stop-color="#97607d"/>
+                <stop offset=".43" stop-color="#8a5384"/>
+                <stop offset=".57" stop-color="#744683"/>
+                <stop offset=".74" stop-color="#604078"/>
+                <stop offset=".94" stop-color="#2c2f55"/>
+              </linearGradient>
+            </defs>
+            <rect fill="url(#lg-m)" stroke="#fff" stroke-miterlimit="10" stroke-width="1.17"
+              x=".58" y="17.35" width="309.54" height="35.06" rx="10.36" ry="10.36"
+              transform="translate(310.71 69.75) rotate(180)"/>
+            <path fill="#a8725f" stroke="#fff" stroke-miterlimit="10" stroke-width="1.17"
+              d="M40.67,11c0,5.75-10.41,16.94-10.41,16.94,0,0-10.41-11.19-10.41-16.94S24.5.58,30.25.58s10.41,4.66,10.41,10.41Z"
+              onclick="copy('#A8725F')" style="cursor:pointer"/>
+            <path fill="#845084" stroke="#fff" stroke-miterlimit="10" stroke-width="1.17"
+              d="M165.12,11c0,5.75-10.41,16.94-10.41,16.94,0,0-10.41-11.19-10.41-16.94s4.66-10.41,10.41-10.41,10.41,4.66,10.41,10.41Z"
+              onclick="copy('#845084')" style="cursor:pointer"/>
+            <path fill="#2c2f55" stroke="#fff" stroke-miterlimit="10" stroke-width="1.17"
+              d="M299.35,11c0,5.75-10.41,16.94-10.41,16.94,0,0-10.41-11.19-10.41-16.94s4.66-10.41,10.41-10.41,10.41,4.66,10.41,10.41Z"
+              onclick="copy('#2c2f55')" style="cursor:pointer"/>
+          </svg>
+        </div>
       </div>
 
     </div>
