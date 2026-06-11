@@ -9,6 +9,19 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+:root {
+  /* Page background + matching gradient fade masks */
+  --bg-color: #fff;
+
+  /* Text colors */
+  --text-primary: #1a1a1a;   /* color names, headings, dark text */
+  --text-secondary: #606060; /* spec values, body copy */
+  --text-muted: #999;        /* nav links, subtitle, sublabels */
+  --text-faint: #bbb;        /* section sublabels (GRADIENT/STATIC), faint labels */
+  --text-hover: #000;        /* hover state for nav + color names */
+  --text-hover-secondary: #111; /* hover state for spec values */
+}
+
 html {
   font-size: clamp(14px, 0.9vw, 18px);
   scroll-behavior: auto;
@@ -16,7 +29,7 @@ html {
 }
 
 html, body {
-  background: #fff;
+  background: var(--bg-color);
   width: 100%;
   min-height: 100vh;
   height: 100%;
@@ -44,7 +57,7 @@ html, body {
   font-weight: 200;
   font-size: clamp(48px, 5vw, 72px);
   line-height: 1;
-  color: #000;
+  color: var(--text-primary);
   letter-spacing: 0;
 }
 
@@ -69,7 +82,7 @@ html, body {
   transform: translateX(-50%);
   width: 800px;
   height: 200px;
-  background: linear-gradient(to top, #fff 30%, transparent);
+  background: linear-gradient(to top, var(--bg-color) 30%, transparent);
   pointer-events: none;
   z-index: -1;
 }
@@ -79,23 +92,23 @@ html, body {
   font-weight: 200;
   font-size: clamp(10px, 0.8vw, 13px);
   letter-spacing: 0.1em;
-  color: #999;
+  color: var(--text-muted);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.25s;
   user-select: none;
 }
 
-.mizar-nav a:hover { color: #000; }
+.mizar-nav a:hover { color: var(--text-hover); }
 
-.mizar-nav a.nav-active { color: #000; }
+.mizar-nav a.nav-active { color: var(--text-hover); }
 
 .mizar-nav span {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
   font-size: clamp(10px, 0.8vw, 13px);
   letter-spacing: 0.1em;
-  color: #999;
+  color: var(--text-muted);
   cursor: pointer;
   transition: color 0.25s;
   user-select: none;
@@ -127,6 +140,10 @@ html, body {
   z-index: 1000;
 }
 
+.mizar-header-wrapper.no-transition {
+  transition: none;
+}
+
 .mizar-header-wrapper::before {
   content: '';
   position: absolute;
@@ -135,7 +152,7 @@ html, body {
   transform: translateX(-50%);
   width: 800px;
   height: 200px;
-  background: linear-gradient(to bottom, #fff 30%, transparent);
+  background: linear-gradient(to bottom, var(--bg-color) 30%, transparent);
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
@@ -256,7 +273,7 @@ body.scrolled .home-subtitle {
   font-family: ArponaSans-ExtraLight, sans-serif;
   font-size: 12px;
   letter-spacing: 0.2em;
-  color: #999;
+  color: var(--text-muted);
   text-transform: uppercase;
 }
 
@@ -275,7 +292,7 @@ body.scrolled .home-subtitle {
 
 .alcor-svg-wrap {
   width: min(900px, 85vw);
-  background: #fff;
+  background: transparent;
   cursor: default;
 }
 
@@ -334,7 +351,7 @@ body.scrolled .home-subtitle {
   font-weight: 200;
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: #aaa;
+  color: var(--text-muted);
   background: none;
   border: 0.5px solid #ddd;
   padding: 5px 14px;
@@ -342,7 +359,7 @@ body.scrolled .home-subtitle {
   transition: color 0.2s, border-color 0.2s;
   text-transform: uppercase;
 }
-.dl-btn:hover { color: #1a1a1a; border-color: #999; }
+.dl-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
 
 /* ── COLORS ──────────────────────────────── */
 .colors-content {
@@ -436,12 +453,12 @@ body.scrolled .home-subtitle {
   font-weight: 200;
   font-size: 14px;
   letter-spacing: 0.03em;
-  color: #1a1a1a;
+  color: var(--text-primary);
   cursor: pointer;
   display: block;
   transition: color 0.18s;
 }
-.color-name:hover { color: #000; }
+.color-name:hover { color: var(--text-hover); }
 
 .color-specs {
   display: flex;
@@ -453,20 +470,20 @@ body.scrolled .home-subtitle {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
   font-size: 14px;
-  color: #606060;
+  color: var(--text-secondary);
   letter-spacing: 0.03em;
   cursor: pointer;
   transition: color 0.18s;
   white-space: nowrap;
 }
-.spec:hover { color: #111; }
+.spec:hover { color: var(--text-hover-secondary); }
 
 .section-sublabel {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
   font-size: 14px;
   letter-spacing: 0.14em;
-  color: #bbb;
+  color: var(--text-faint);
   text-transform: uppercase;
 }
 
@@ -486,21 +503,21 @@ body.scrolled .home-subtitle {
   font-family: 'Jost', sans-serif;
   font-weight: 700;
   font-size: 64px;
-  color: #606060;
+  color: var(--text-secondary);
   line-height: 1;
   display: block;
 }
 
 .type-body-col { flex: 0 0 auto; padding-right: 48px; }
-.type-alcor-lg { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 40px; color: #606060; line-height: 1.3; display: block; }
+.type-alcor-lg { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 40px; color: var(--text-secondary); line-height: 1.3; display: block; }
 .type-alcor-md { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 33px; color: #777; line-height: 1.3; display: block; }
-.type-alcor-sm { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 27px; color: #999; line-height: 1.3; display: block; }
+.type-alcor-sm { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 27px; color: var(--text-muted); line-height: 1.3; display: block; }
 .type-label {
   font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
   font-weight: 200;
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: #bbb;
+  color: var(--text-faint);
   text-transform: uppercase;
   margin-top: 8px;
 }
@@ -511,7 +528,7 @@ body.scrolled .home-subtitle {
 .type-squada-word {
   font-family: 'Squada One', sans-serif;
   font-size: 56px;
-  color: #606060;
+  color: var(--text-secondary);
   line-height: 1;
   display: block;
 }
@@ -615,7 +632,7 @@ body.scrolled .home-subtitle {
     font-weight: 200;
     font-size: 18px;
     letter-spacing: 0.18em;
-    color: #bbb;
+    color: var(--text-faint);
     text-transform: uppercase;
   }
 
@@ -647,12 +664,12 @@ body.scrolled .home-subtitle {
     font-family: ArponaSans-ExtraLight, 'arpona-sans', ArponaSans, sans-serif;
     font-weight: 200;
     font-size: 11px;
-    color: #606060;
+    color: var(--text-secondary);
     letter-spacing: 0.03em;
     cursor: pointer;
     white-space: nowrap;
   }
-  .cm-hex:hover { color: #111; }
+  .cm-hex:hover { color: var(--text-hover-secondary); }
 
   .cm-grad-wrap {
     display: flex;
@@ -696,10 +713,7 @@ body.scrolled .home-subtitle {
   .type-alcor-md    { font-size: 26px; }
   .type-alcor-sm    { font-size: 22px; }
 
-  /* Hero: scale down wordmark and subtitle */
-  .mizar-header-wrapper {
-    transform: translate(-50%, -60%) scale(calc(var(--hero-scale, 1) * 0.62));
-  }
+  /* Hero: wordmark already matches subtitle width via dynamic --hero-scale */
   body.scrolled .mizar-header-wrapper {
     transform: translateX(-50%) scale(0.9);
   }
@@ -1052,21 +1066,44 @@ const headerWrapper = document.querySelector('.mizar-header-wrapper');
 const headerInner   = document.querySelector('.mizar-header');
 
 function setHeroScale() {
-  const naturalWidth = headerInner.getBoundingClientRect().width;
-  const scale = 430 / naturalWidth;
+  // Disable transition while we recalculate to avoid a visible jump
+  headerWrapper.classList.add('no-transition');
+
+  // The header element may already have a previous --hero-scale applied,
+  // so divide it out to get the TRUE unscaled natural width.
+  const currentScale = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--hero-scale')
+  ) || 1;
+  const renderedWidth = headerInner.getBoundingClientRect().width;
+  const naturalWidth = renderedWidth / currentScale;
+
+  const subtitle = document.querySelector('.home-subtitle');
+  const targetWidth = subtitle.getBoundingClientRect().width;
+  const scale = targetWidth / naturalWidth;
   document.documentElement.style.setProperty('--hero-scale', scale.toFixed(4));
 
   // After scale is applied, measure where the wrapper's bottom actually sits
   requestAnimationFrame(() => {
     const rect = headerWrapper.getBoundingClientRect();
     const subtitleTop = rect.bottom + 20;
-    document.querySelector('.home-subtitle').style.top = subtitleTop + 'px';
-    document.querySelector('.home-subtitle').style.paddingTop = '0';
+    subtitle.style.top = subtitleTop + 'px';
+    subtitle.style.paddingTop = '0';
+
+    // Re-enable transitions on the next frame, after layout has settled
+    requestAnimationFrame(() => {
+      headerWrapper.classList.remove('no-transition');
+    });
   });
 }
 
 setHeroScale();
 window.addEventListener('resize', setHeroScale);
+
+// Re-measure once custom fonts finish loading (initial measurement
+// may happen with fallback fonts, giving an inaccurate width)
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(setHeroScale);
+}
 
 
 
