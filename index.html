@@ -509,7 +509,16 @@ body.scrolled .home-subtitle {
   display: block;
 }
 
-.type-body-col { flex: 0 0 auto; padding-right: 48px; }
+.type-body-col {
+  flex: 0 0 auto;
+  padding-right: 48px;
+  display: grid;
+  grid-template-rows: 130px auto;
+  align-items: start;
+}
+.type-body-samples {
+  height: 130px;
+}
 .type-alcor-lg { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 40px; color: var(--text-secondary); line-height: 1.3; display: block; }
 .type-alcor-md { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 33px; color: #777; line-height: 1.3; display: block; }
 .type-alcor-sm { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 27px; color: var(--text-muted); line-height: 1.3; display: block; }
@@ -534,7 +543,17 @@ body.scrolled .home-subtitle {
   display: block;
 }
 
-.type-logo-col { flex: 0 0 auto; align-self: flex-end; }
+.type-logo-col {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-rows: 130px auto;
+  align-items: start;
+}
+.type-logo-sample {
+  height: 130px;
+  display: flex;
+  align-items: center;
+}
 .type-logo-word {
   font-family: 'Squada One', sans-serif;
   font-size: 32px;
@@ -1078,9 +1097,11 @@ body.scrolled .home-subtitle {
         </a>
       </div>
       <div class="type-body-col">
-        <span class="type-alcor-lg">Alcor</span>
-        <span class="type-alcor-md">Alcor</span>
-        <span class="type-alcor-sm">Alcor</span>
+        <div class="type-body-samples">
+          <span class="type-alcor-lg">Alcor</span>
+          <span class="type-alcor-md">Alcor</span>
+          <span class="type-alcor-sm">Alcor</span>
+        </div>
         <div class="type-label">Body</div>
       </div>
       <div class="type-squada-col">
@@ -1089,7 +1110,9 @@ body.scrolled .home-subtitle {
         </a>
       </div>
       <div class="type-logo-col">
-        <div class="type-logo-word">Alcor</div>
+        <div class="type-logo-sample">
+          <div class="type-logo-word">Alcor</div>
+        </div>
         <div class="type-label">Logo</div>
       </div>
     </div>
