@@ -80,9 +80,9 @@ html, body {
   bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 200px;
-  background: linear-gradient(to top, var(--bg-color) 30%, transparent);
+  width: 100vw;
+  height: 140px;
+  background: linear-gradient(to top, var(--bg-color) 25%, transparent);
   pointer-events: none;
   z-index: -1;
 }
@@ -150,9 +150,9 @@ html, body {
   top: -40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 200px;
-  background: linear-gradient(to bottom, var(--bg-color) 30%, transparent);
+  width: 100vw;
+  height: 140px;
+  background: linear-gradient(to bottom, var(--bg-color) 25%, transparent);
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
@@ -401,7 +401,7 @@ body.scrolled .home-subtitle {
 .colors-sublabel {
   width: 100%;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 32px;
   flex-basis: 100%;
 }
 
@@ -1306,8 +1306,11 @@ function toast(msg) {
 
 /* ── SVG Downloads ──────────────────────── */
 function dlFull() {
-  const svg = document.getElementById('alcor-svg');
-  // Reset to black before exporting
+  const svg = document.getElementById('alcor-svg').cloneNode(true);
+  const bg = svg.querySelector('.svg-bg');
+  if (bg) bg.remove();
+  svg.classList.remove('animate-draw');
+
   const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
